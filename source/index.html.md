@@ -775,12 +775,12 @@ Parameters:
 
 | 名称             | 类型    | YES否必需 | 描述                   |
 | ---------------- | ------- | -------- | ---------------------- |
-| symbol           | STRING  | YES      | 交易对                 |
+| symbol           | STRING  | YES      |                   |
 | side             | ENUM    | YES      | ENUM：Order Side |
 | type             | ENUM    | YES      | ENUM：Order Type |
 | quantity         | DECIMAL | NO       | Quantity     |
 | price            | DECIMAL | NO       | Price           |
-| newClientOrderId | STRING  | NO       |  |
+| newClientOrderId | STRING  | NO       |                  |
 | recvWindow       | LONG    | NO       | Max 60000   |
 | timestamp        | LONG    | YES      |                        |
 
@@ -881,7 +881,7 @@ Response:
 
 - **DELETE** ```/api/v3/openOrders```
 
-撤销单一交易对下所有挂单, 包括OCO的挂单。
+
 
 Parameters:
 
@@ -1046,8 +1046,6 @@ Response:
 
 - **GET** ```/api/v3/allOrders```
 
-获取所有帐户订单； 有效，已取消或已完成。
-
 Parameters:
 
 | name     | Type | Mandatory | Description          |
@@ -1082,6 +1080,7 @@ Response:
 | updateTime          | Last update time           |
 | isWorking           | is orderbook               |
 | origQuoteOrderQty   |     |
+
 ## Account Information
 
 > Response
@@ -1112,7 +1111,6 @@ Response:
 
 - **GET** ```/api/v3/account```
 
-获取当前账户信息
 
 Parameters:
 
@@ -1147,7 +1145,7 @@ Response:
 ```json
 [
   {
-    "symbol": "BNBBTC", // 交易对
+    "symbol": "MXBTC", //
     "id": 28457, // trade ID
     "orderId": 100234, 
     "orderListId": -1, 
@@ -1155,7 +1153,7 @@ Response:
     "qty": "12.00000000", 
     "quoteQty": "48.000012", 
     "commission": "10.10000000", 
-    "commissionAsset": "BNB", 
+    "commissionAsset": "MX", 
     "time": 1499865549590, 
     "isBuyer": true, 
     "isMaker": false, 
@@ -1199,6 +1197,48 @@ Response:
 | time            | trade time |
 | isBuyerMaker    |  |
 | isBestMatch     |     |
+
+# ETF Endpoint
+
+## Get ETF General Information
+
+> Response
+
+```json
+{
+
+"symbol": "BTC3LUSDT", 
+
+"netValue": "0.147", 
+
+"feeRate":" 0.00001", 
+
+"timestamp": `1507725176595`
+
+}
+
+```
+
+- **GET** ```api/v3/etf/info```
+
+Get general information on ETF, such as tradable currency pairs, latest net value and management rates.
+
+Parameters:
+
+| name     | Type | Mandatory | Description            |
+| ---------- | -------- | -------- | ---------------------- |
+| symbol |  string  |  false   | Name of ETF Trading Pairs,if the symbol is not sent, orders for all symbols will be returned. |
+
+Response:
+
+| name          | Description       |
+| --------------- | ----------------- |
+|  symbol   | Name of ETF Trading Pairs |
+| netValue  |   net value    |
+|  feeRate  |   fee rate    |
+| timestamp |   timestamp    |
+
+
 
 ## Public API Definitions
 
