@@ -1092,7 +1092,7 @@ MARKET：当type是market时，若为买单，则quoteOrderQty，为必填参数
 若为卖单，quantity为必填参数，
 
 - 比如在`BTCUSDT`上下一个市价买单, 明确的是买入时想要花费的计价资产数量。此时的报单数量将会以市场流动性和`quoteOrderQty`被计算出来（实际成交数量以最终订单详情为准）。
-  以`BTCUSDT`为例，`quoteOrderQty=100`:下买单的时候, 订单会尽可能的买进价值100USDT的BTC.
+  以`BTCUSDT`为例，`quoteOrderQty=100`:下买单的时候, 订单会尽可能的买进价值100USDT的BTC。
 
 - 比如在`BTCUSDT`上下一个市价卖单, `quantity`为用户指明能够卖出多少BTC。
 
